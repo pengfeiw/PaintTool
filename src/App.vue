@@ -1,28 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <el-collapse>
+      <el-collapse-item title="颜色">
+        <ColorPanel />
+      </el-collapse-item>
+      <el-collapse-item title="形状"></el-collapse-item>
+    </el-collapse>
+    <!-- <ShapePanel/> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ColorPanel from '@/components/ColorPanel/ColorPanel.vue';
+// import ShapePanel from '@/components/ShapePanel/ShapePanel.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    // ShapePanel,
+    ColorPanel
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
