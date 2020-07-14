@@ -3,8 +3,15 @@ export const color = [
     ['cyan', 'blue', 'purple', 'fuchsia', 'black']
 ];
 
-export const shape = [
-    {shapeName:"Line", shapeImg:"../shapeImage/line.png"},
-    {shapeName:"Rect", shapeImg:"@/shapeImage/Rect.png"},
-    {shapeName:"Circle", shapeImg:"@/shapeImage/Circle.png"}
-];
+//export const shape = ["Line", "Rect", "Circle"];
+
+export const shape = {
+    LINE: 'Line',
+    RECT: 'Rect',
+    CIRCLE: 'Circle'
+};
+
+export const toolImage = {
+    pen: require("./assets/image/pen.png"),
+    eraser: require("./assets/image/eraser.png")
+}

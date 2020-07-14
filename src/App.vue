@@ -9,7 +9,9 @@
         <el-collapse-item title="形状">
           <ShapePanel />
         </el-collapse-item>
-        <el-collapse-item title="工具"></el-collapse-item>
+        <el-collapse-item title="工具">
+          <ToolPanel />
+        </el-collapse-item>
       </el-collapse>
       <DrawingArea class="drawing-part"/>
       <!-- <ShapePanel/> -->
@@ -22,6 +24,7 @@ import ColorPanel from "@/components/ColorPanel/ColorPanel.vue";
 import TopBar from "@/components/TopBar/TopBar.vue";
 import DrawingArea from "@/components/DrawingArea/DrawingArea.vue";
 import ShapePanel from '@/components/ShapePanel/ShapePanel.vue';
+import ToolPanel from '@/components/ToolPanel/ToolPanel.vue';
 
 export default {
   name: "App",
@@ -29,7 +32,8 @@ export default {
     ShapePanel,
     TopBar,
     ColorPanel,
-    DrawingArea
+    DrawingArea,
+    ToolPanel
   }
 };
 </script>

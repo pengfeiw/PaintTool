@@ -1,10 +1,17 @@
 <template>
-  <div>
-    <div v-for="(shape,index) in shapes" :key="index">
-      <shapeItem :shapeImage="shape.shapeImg" :shapeName="shape.shapeName"/>
-    </div>
+  <div class="flex">
+    <!-- <div v-for="(shape,index) in shapes" :key="index">
+      <shapeItem :shapeName="shape"/>
+    </div> -->
+    <shapeItem v-for="(shape, name) in shapes" :shapeName="shape" :key="name" /> 
   </div>
 </template>
 
 <script src="./ShapePanel.js">
 </script>
+
+<style scoped>
+  .flex{
+    display: flex;
+  }
+</style>

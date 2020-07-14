@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img :src="shapeImage" :alt="shapeName">
+        <canvas ref="cav" width="60px" height="30px"></canvas>
     </div>
 </template>
 
@@ -8,8 +8,17 @@
 </script>
 
 <style scoped>
-    img{
-        width:60px;
-        height:30px
+    div{
+        margin:1px;
+        padding: 0px;
+    }
+    canvas{
+        border: 1px solid white;
+        background-color:cornsilk;
+        margin: 0px;
+    }
+
+    canvas:hover{
+        border:1px solid blue;
     }
 </style>
