@@ -46,6 +46,7 @@ export default {
 .tool-part{
   width:200px;
   margin-right:20px;
+  flex-shrink: 0;
 }
 
 .drawing-part{
