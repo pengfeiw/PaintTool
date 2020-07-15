@@ -1,5 +1,5 @@
 <template>
-    <div :style="{backgroundColor:backgroundColor}"></div>
+    <div :style="{backgroundColor:backgroundColor}" @click="changeColor"></div>
 </template>
 
 <script src="./ColorItem.js"></script>

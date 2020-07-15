@@ -2,9 +2,13 @@
     <div>
         <el-button round>保存</el-button>
         <el-button round>打开</el-button>
-        <el-button type="danger" round>清空</el-button>
+        <el-button type="danger" round @click="clearCanvas">清空</el-button>
+        <el-button id="back" icon="el-icon-back" round></el-button>
+        <el-button id="forward" icon="el-icon-right" round></el-button>
     </div>
 </template>
+
+<script src="./TopBar.js"></script>
 
 <style scoped>
     div{
@@ -12,5 +16,9 @@
         padding:5px 0px 5px 5px;
 
         margin-bottom:20px;
+    }
+    
+    #back{
+        margin-left: 100px;
     }
 </style>

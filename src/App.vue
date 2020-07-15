@@ -12,6 +12,8 @@
         <el-collapse-item title="工具">
           <ToolPanel />
         </el-collapse-item>
+        <el-collapse-item title="线形">
+        </el-collapse-item>
       </el-collapse>
       <DrawingArea class="drawing-part"/>
       <!-- <ShapePanel/> -->
@@ -26,8 +28,11 @@ import DrawingArea from "@/components/DrawingArea/DrawingArea.vue";
 import ShapePanel from '@/components/ShapePanel/ShapePanel.vue';
 import ToolPanel from '@/components/ToolPanel/ToolPanel.vue';
 
+import {store} from '@/store/store.js';
+
 export default {
   name: "App",
+  store,
   components: {
     ShapePanel,
     TopBar,
