@@ -5,5 +5,10 @@ export default{
         return {
             IMGS
         }
+    },
+    methods:{
+        changeWidth(value){
+            this.$store.commit("changeLineWidth", value);
+        }
     }
 }

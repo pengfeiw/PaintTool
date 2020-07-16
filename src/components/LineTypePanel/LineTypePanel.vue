@@ -2,44 +2,38 @@
   <div class="flex-box">
     <div class="line-width panel-item">
       <el-dropdown>
-        <img :src="IMGS.LineWidth" alt />
-        <div class="textDiv">粗细</div>
+        <div>
+          <img :src="IMGS.LineWidth" alt />
+          <div class="textDiv">粗细</div>
+        </div>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>
-            <img :src="IMGS.LineW1" alt="1pt" />
-          </el-dropdown-item>
-          <el-dropdown-item>
-            <img :src="IMGS.LineW2" alt="2pt" />
-          </el-dropdown-item>
-          <el-dropdown-item>
-            <img :src="IMGS.LineW3" alt="3pt" />
-          </el-dropdown-item>
-          <el-dropdown-item>
-            <img :src="IMGS.LineW4" alt="4pt" />
-          </el-dropdown-item>
-          <el-dropdown-item>
-            <img :src="IMGS.LineW5" alt="5pt" />
-          </el-dropdown-item>
-          <el-dropdown-item>
-            <img :src="IMGS.LineW6" alt="7pt" />
-          </el-dropdown-item>
-          <el-dropdown-item>
-            <img :src="IMGS.LineW7" alt="9pt" />
-          </el-dropdown-item>
-          <el-dropdown-item>
-            <img :src="IMGS.LineW8" alt="9pt" />
+          <el-dropdown-item v-for="(LineWI, name) in IMGS.LineW" :key="name">
+            <img
+              :src="LineWI"
+              :alt="name.match(/\d/)+'pt'"
+              :widthIndex="name.match(/\d+/)"
+              @click="changeWidth($event.target.attributes.widthIndex.nodeValue)"
+            />
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
     <div class="line-type panel-item">
       <el-dropdown>
-        <img :src="IMGS.LineType" alt />
-        <div class="textDiv">线型</div>
+        <div>
+          <img :src="IMGS.LineType" alt />
+          <div class="textDiv">线型</div>
+        </div>
         <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item><img :src="IMGS.LineType1" alt="solid"></el-dropdown-item>
-            <el-dropdown-item><img :src="IMGS.LineType2" alt="dash1"></el-dropdown-item>
-            <el-dropdown-item><img :src="IMGS.LineType3" alt="dash2"></el-dropdown-item>    
+          <el-dropdown-item>
+            <img :src="IMGS.LineType1" alt="solid" />
+          </el-dropdown-item>
+          <el-dropdown-item>
+            <img :src="IMGS.LineType2" alt="dash1" />
+          </el-dropdown-item>
+          <el-dropdown-item>
+            <img :src="IMGS.LineType3" alt="dash2" />
+          </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>

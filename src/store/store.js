@@ -11,17 +11,22 @@ export const store = new Vuex.Store({
         canvasHistory: [],
         canvasHistoryIndex: -1,
         tool: tools.Pen.name,
+        lineWidth: 1,
     },
     mutations: {
         changeColor(state, color) {
             state.drawColor = color;
         },
+        changeLineWidth(state, lineW){
+            //state.ctx.lineWidth = lineW;
+            state.lineWidth = lineW * 1;
+        },
         //绘制线段：(x1, y1)--->(x2, y2)
         drawLine(state, { x1, y1, x2, y2 }) {
             var context = state.ctx;
             context.strokeStyle = state.drawColor;
+            context.lineWidth = state.lineWidth;
             context.beginPath();
-            context.lineWidth = 1;
             context.moveTo(x1, y1);
             context.lineTo(x2, y2);
             context.stroke();
@@ -63,11 +68,10 @@ export const store = new Vuex.Store({
         //橡皮擦
         erasureCanvas(state, { x1, y1, x2, y2 }) {
             var context = state.ctx;
-            //context.strokeStyle = state.drawColor;
             var backgroundColor = context.canvas.backgroundColor || "white";
             context.strokeStyle = backgroundColor;
+            context.lineWidth = state.lineWidth;
             context.beginPath();
-            context.lineWidth = 1;
             context.moveTo(x1, y1);
             context.lineTo(x2, y2);
             context.stroke();
