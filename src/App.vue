@@ -13,6 +13,7 @@
           <ToolPanel />
         </el-collapse-item>
         <el-collapse-item title="线形">
+          <LineTypePanel />
         </el-collapse-item>
       </el-collapse>
       <DrawingArea class="drawing-part"/>
@@ -27,6 +28,7 @@ import TopBar from "@/components/TopBar/TopBar.vue";
 import DrawingArea from "@/components/DrawingArea/DrawingArea.vue";
 import ShapePanel from '@/components/ShapePanel/ShapePanel.vue';
 import ToolPanel from '@/components/ToolPanel/ToolPanel.vue';
+import LineTypePanel from '@/components/LineTypePanel/LineTypePanel.vue';
 
 import {store} from '@/store/store.js';
 
@@ -38,12 +40,13 @@ export default {
     TopBar,
     ColorPanel,
     DrawingArea,
-    ToolPanel
+    ToolPanel,
+    LineTypePanel
   }
 };
 </script>
 
-<style>
+<style scoped>
 .flex-box {
   display: flex;
   height: 100%;

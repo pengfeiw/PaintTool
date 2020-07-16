@@ -1,6 +1,6 @@
 <template>
     <div class="flex">
-        <ToolItem v-for="(imgUrl, name) in toolImages" :toolName="name" :toolImg="imgUrl" :key="name" />    
+        <ToolItem v-for="tool in tools" :toolName="tool.name" :toolImg="tool.imgSrc" :key="tool.name" />    
     </div>    
 </template>
 

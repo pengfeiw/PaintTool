@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img :src="toolImg" :alt="toolName">
+        <img :src="toolImg" :alt="toolName" @click="changeTool">
     </div>
 </template>
 

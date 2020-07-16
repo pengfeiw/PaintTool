@@ -1,3 +1,5 @@
+import { tools } from "@/const.js";
+
 export default {
     data() {
         return {
@@ -8,15 +10,16 @@ export default {
             isDrawing: false
         }
     },
-    created(){
+    created() {
     },
     mounted() {
         this.$store.state.ctx = this.$refs.cav.getContext('2d');
         this.updateCanvasSize();
         window.addEventListener("resize", this.updateCanvasSize);
+        this.$store.commit("recordCanvas");
     },
-    computed:{
-        ctx(){
+    computed: {
+        ctx() {
             return this.$store.state.ctx;
         }
     },
@@ -24,31 +27,46 @@ export default {
         mouseDown(e) {
             this.lastPosition.x = e.offsetX;
             this.lastPosition.y = e.offsetY;
-            if (e.button === 0){
+            if (e.button === 0) {
                 this.isDrawing = true;
             }
         },
         mouseUp() {
+            if (this.isDrawing) {
+                this.$store.commit("recordCanvas");
+            }
             this.isDrawing = false;
         },
         mouseMove(e) {
             if (this.isDrawing) {
-                this.drawLine(this.lastPosition.x, this.lastPosition.y, e.offsetX, e.offsetY);
-                this.lastPosition = {x:e.offsetX, y:e.offsetY};
+                switch (this.$store.state.tool) {
+                    case tools.Pen.name:
+                        this.drawLine(this.lastPosition.x, this.lastPosition.y, e.offsetX, e.offsetY);
+                        break;
+                    case tools.Eraser.name:
+                        this.erasureCanvas(this.lastPosition.x, this.lastPosition.y, e.offsetX, e.offsetY);
+                        break;
+                    default:
+                        break;
+                }
+                this.lastPosition = { x: e.offsetX, y: e.offsetY };
             }
         },
-        mouseLeave(){
-            this.isDrawing = false;
+        mouseLeave() {
+            this.mouseUp();
         },
         //调整canvas大小: canvas调整大小后，canvas上内容会自动清空，所以需要记录图形，然后重新绘制到canvas上
-        updateCanvasSize(){
+        updateCanvasSize() {
             var cavImg = this.ctx.getImageData(0, 0, this.$refs.cav.width, this.$refs.cav.height);
             this.$refs.cav.width = this.$refs.cav.parentElement.offsetWidth;
             this.$refs.cav.height = this.$refs.cav.parentElement.offsetHeight;
             this.ctx.putImageData(cavImg, 0, 0);
         },
-        drawLine(x1, y1, x2, y2){
-            this.$store.commit("drawLine", {x1, y1, x2, y2});
+        drawLine(x1, y1, x2, y2) {
+            this.$store.commit("drawLine", { x1, y1, x2, y2 });
+        },
+        erasureCanvas(x1, y1, x2, y2){
+            this.$store.commit("erasureCanvas",{x1, y1, x2, y2});
         }
     }
 }
