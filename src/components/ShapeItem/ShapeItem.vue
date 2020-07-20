@@ -1,6 +1,7 @@
 <template>
     <div>
-        <canvas ref="cav" width="60px" height="30px"></canvas>
+        <!-- <canvas ref="cav" width="60px" height="30px"></canvas> -->
+        <img :src="shapeImg" @click="useShapeTool">
     </div>
 </template>
 
@@ -12,13 +13,13 @@
         margin:1px;
         padding: 0px;
     }
-    canvas{
+    img{
         border: 1px solid white;
-        background-color:cornsilk;
+        /* background-color:cornsilk; */
         margin: 0px;
     }
 
-    canvas:hover{
+    img:hover{
         border:1px solid blue;
     }
 </style>

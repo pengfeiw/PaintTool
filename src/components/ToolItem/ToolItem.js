@@ -7,6 +7,7 @@ export default{
     },
     methods:{
         changeTool(){
+            this.$store.state.isDrawShape = false;
             this.$store.state.tool = this.toolName;
         }
     }

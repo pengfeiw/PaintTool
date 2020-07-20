@@ -25,7 +25,7 @@
           <div class="textDiv">线型</div>
         </div>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>
+          <!-- <el-dropdown-item>
             <img :src="IMGS.LineType1" alt="solid" />
           </el-dropdown-item>
           <el-dropdown-item>
@@ -33,6 +33,12 @@
           </el-dropdown-item>
           <el-dropdown-item>
             <img :src="IMGS.LineType3" alt="dash2" />
+          </el-dropdown-item> -->
+          <el-dropdown-item v-for="(LineDash, name) in IMGS.LineT" :key="name">
+            <img 
+            :src="LineDash"
+            :dashIndex="name.match(/\d+/)"
+            @click="changeLineDash($event.target.attributes.dashIndex.nodeValue)">
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>

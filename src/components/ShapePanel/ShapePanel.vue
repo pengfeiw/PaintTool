@@ -3,7 +3,7 @@
     <!-- <div v-for="(shape,index) in shapes" :key="index">
       <shapeItem :shapeName="shape"/>
     </div> -->
-    <shapeItem v-for="(shape, name) in shapes" :shapeName="shape" :key="name" /> 
+    <shapeItem v-for="(shape, name) in shapes" :shapeImg="shape" :key="name" /> 
   </div>
 </template>
 

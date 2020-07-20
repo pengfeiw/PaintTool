@@ -4,14 +4,14 @@ export const color = [
 ];
 
 export const shape = {
-    LINE: 'Line',
-    RECT: 'Rect',
-    CIRCLE: 'Circle'
+    LINE: require("./assets/image/line.png"),
+    RECT: require("./assets/image/rectangle.png"),
+    CIRCLE: require("./assets/image/ellipse.png")
 };
 
 export const tools = {
     Pen: { name: "Pen", imgSrc: require("./assets/image/pen.png") },
-    Eraser: { name: "Eraser", imgSrc: require("./assets/image/eraser.png") }
+    Eraser: { name: "Eraser", imgSrc: require("./assets/image/eraser.png") },
 };
 
 export const IMGS = {
@@ -29,7 +29,12 @@ export const IMGS = {
     },
     //线形图片
     LineType: require("./assets/image/linetype.png"),
-    LineType1: require("./assets/image/linetype_1.png"),
-    LineType2: require("./assets/image/linetype_2.png"),
-    LineType3: require("./assets/image/linetype_3.png"),
+    // LineType1: require("./assets/image/linetype_1.png"),
+    // LineType2: require("./assets/image/linetype_2.png"),
+    // LineType3: require("./assets/image/linetype_3.png"),
+    LineT: {
+        LineDash1: require("./assets/image/linetype_1.png"),
+        LineDash2: require("./assets/image/linetype_2.png"),
+        LineDash3: require("./assets/image/linetype_3.png"),
+    }
 };
